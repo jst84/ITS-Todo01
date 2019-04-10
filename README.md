@@ -22,4 +22,7 @@ Terminologie discusse:
 * RIA = Rich internet application
 * Angular, React, Vue: framework javascript
 
+![alt text](https://trello-attachments.s3.amazonaws.com/5cadc97ca50f8e4d5133cdf2/703x937/594ce07659c31587045a0188bc504311/IMG_20190409_181316.jpg)
+
+![alt text](https://trello-attachments.s3.amazonaws.com/5cadc97ca50f8e4d5133cdf2/666x888/d4dc82ea7bf41f1c51c1040652f89467/IMG_20190409_181206.jpg)
 
