@@ -10,7 +10,7 @@ Terminologie discusse:
 
 ### BACKEND
 
-* DAL -> data access layer
+* DAL -> data access layer, Stored procedure e Query 
 * MVC -> pattern architetturale = MODEL VIEW CONTROLLER
 * MVVM -> pattern architetturale = MODEL VIEW VIEWMODEL
 * ORM e MICROORM -> DAL avanzato che permette di mappare in maniera automatica o semi automatica il db ad entità (oggetti) sul codice = Object relationship mapping. Esempi: Entity framework (database first, code first), Nhibernate, Dapper
