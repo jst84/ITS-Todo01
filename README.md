@@ -12,14 +12,14 @@ Terminologie discusse:
 
 * DAL -> data access layer
 * MVC -> pattern architetturale = MODEL VIEW CONTROLLER
-MVVM -> pattern architetturale = MODEL VIEW VIEWMODEL
-ORM e MICROORM -> DAL avanzato che permette di mappare in maniera automatica o semi automatica il db ad entità (oggetti) sul codice = Object relationship mapping. Esempi: Entity framework (database first, code first), Nhibernate, Dapper
-Extension Method
----
+* MVVM -> pattern architetturale = MODEL VIEW VIEWMODEL
+* ORM e MICROORM -> DAL avanzato che permette di mappare in maniera automatica o semi automatica il db ad entità (oggetti) sul codice = Object relationship mapping. Esempi: Entity framework (database first, code first), Nhibernate, Dapper
+* Extension Method
+
 ### FRONTEND:
----
-Ajax
-RIA = Rich internet application
-Angular, React, Vue: framework javascript
----
+
+* Ajax
+* RIA = Rich internet application
+* Angular, React, Vue: framework javascript
+
 
