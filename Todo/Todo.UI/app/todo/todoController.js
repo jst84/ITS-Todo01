@@ -1,4 +1,4 @@
-﻿todoApp.controller('todoController', function ($scope) {
+﻿todoApp.controller('todoController', function ($scope,$http) {
     $scope.saluto = "";
     $scope.todos = [];
     $scope.selectedTodo = {};
@@ -40,6 +40,7 @@
         }
     }
     function deleteTodo(todo) {
+
         for (var i = 0; i < $scope.todos.length; i++) {
             if ($scope.todos[i].id === todo.id) {
                 $scope.todos.splice(i, 1);
