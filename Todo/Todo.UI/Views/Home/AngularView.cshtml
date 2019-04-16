@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AngularView</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="~/app/app.js"></script>
+    <script src="~/app/todo/todoController.js"></script>
+</head>
+<body ng-app="todoApp">
+    <div ng-controller="todoController">
+        <input type="text" ng-model="saluto" value="" />
+        {{saluto}}
+
+        <div>
+            <ul>
+                <li ng-repeat="todo in todos">
+                    {{todo.name}}
+                    <input type="button" value="delete" ng-click="delete(todo)" />
+                    <input type="button" value="edit" ng-click="update(todo)" />
+                </li>
+            </ul>
+
+            <div><h1>Modifica</h1>
+                <input type="text" ng-model="selectedTodo.name" />
+            <input type="button" value="Save" ng-click="save()" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

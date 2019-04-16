@@ -12,7 +12,10 @@ namespace Todo.UI.Controllers
         {
             return View();
         }
-
+        public ActionResult AngularView()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
