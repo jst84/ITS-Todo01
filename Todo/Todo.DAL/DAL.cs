@@ -68,7 +68,43 @@ namespace Todo.DAL
 
             return todoList;
         }
-        
+
+        public bool DeleteTodo(Todo todo)
+        {
+            var response = 0;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Create a SqlCommand, and identify it as a stored procedure.
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = "delete from Todolist where id=@Id";
+                    sqlCommand.Connection = connection;
+                    sqlCommand.Parameters.AddWithValue("Id", todo.Id);
+
+                    connection.Open();
+
+                    // Run the stored procedure.
+                    response = sqlCommand.ExecuteNonQuery();
+
+                    connection.Close();
+                }
+            }
+
+            //forma estesa
+            //if (response == 0)
+            //{
+            //    return false;
+            //}
+            //else
+            //{
+            //    return true;
+            //}
+
+            //forma contratta
+            return response > 0 ? true : false;
+        }
 
         public static void DropDB()
         {

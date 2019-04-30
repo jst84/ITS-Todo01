@@ -17,28 +17,47 @@
 </head>
 <body ng-app="todoApp">
     <div ng-controller="todoController">
-        <input type="text" ng-model="saluto" value="" />
-        {{saluto}}
+        @*<input type="text" ng-model="saluto" value="" />
+            {{saluto}}*@
 
         <div>
-            <ul>
-                <li ng-repeat="todo in todos">
-                    {{todo.Name}}
-                    {{todo.LastName}}
-                    {{todo.DueDate | date:'MM/dd/yyyy'}}
-                    <span title="{{todo.Task}}">
-                        {{todo.Task | truncateFriendly:10}}
-                    </span>
-                    <input type="button" value="delete" ng-click="delete(todo)" />
-                    <input type="button" value="edit" ng-click="update(todo)" />
-                </li>
-            </ul>
+            <table>
+                <tr>
+                    <td></td>
+                    <td>Name</td>
+                    <td>Last Name</td>
+                    <td>Due Date</td>
+                    <td>Task</td>
+                </tr>
+                <tr ng-repeat="todo in todos">
+                    <td>
+                        <input type="button" value="delete" ng-click="delete(todo)" />
+                        <input type="button" value="edit" ng-click="update(todo)" />
+                    </td>
+                    <td>{{todo.Name}}</td>
+                    <td>{{todo.LastName}}</td>
+                    <td>{{todo.DueDate | date:'MM/dd/yyyy'}}</td>
+                    <td>{{todo.Task | truncateFriendly:10}}</td>
+                </tr>
+            </table>
+            @*<ul>
+                    <li ng-repeat="todo in todos">
+                        {{todo.Name}}
+                        {{todo.LastName}}
+                        {{todo.DueDate | date:'MM/dd/yyyy'}}
+                        <span title="{{todo.Task}}">
+                            {{todo.Task | truncateFriendly:10}}
+                        </span>
+                        <input type="button" value="delete" ng-click="delete(todo)" />
+                        <input type="button" value="edit" ng-click="update(todo)" />
+                    </li>
+                </ul>*@
 
-            <div>
-                <h1>Modifica</h1>
-                <input type="text" ng-model="selectedTodo.name" />
-                <input type="button" value="Save" ng-click="save()" />
-            </div>
+            @*<div>
+                    <h1>Modifica</h1>
+                    <input type="text" ng-model="selectedTodo.name" />
+                    <input type="button" value="Save" ng-click="save()" />
+                </div>*@
         </div>
     </div>
 </body>

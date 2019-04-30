@@ -18,5 +18,27 @@ namespace Todo.UI.Controllers
             var todos = d.GetTodos();
             return todos;
         }
+
+        [HttpDelete]
+        [Route("DeleteTodo")]
+        public HttpResponseMessage DeleteTodo(DAL.Todo todo)
+        {
+            try
+            {
+                DAL.DAL d = new DAL.DAL(System.Configuration.ConfigurationManager.ConnectionStrings["DB"].ConnectionString);
+                var response = d.DeleteTodo(todo);
+                return Request.CreateResponse(HttpStatusCode.OK, response);
+            }
+            catch (Exception ex)
+            {
+                //send email
+                //appInsight.TrackError(ex);
+                
+
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.ToString());
+            }
+
+            //return true;
+        }
     }
 }

@@ -40,12 +40,23 @@
         }
     }
     function deleteTodo(todo) {
-
-        for (var i = 0; i < $scope.todos.length; i++) {
-            if ($scope.todos[i].id === todo.id) {
-                $scope.todos.splice(i, 1);
-            }
-        }
+        services.deleteTodo(todo).then(
+            function (response) {
+                if (response.data == true) {
+                    alert("Eliminazione eseguita con successo");
+                    getTodos();
+                } else {
+                    alert('error dal backend');
+                }
+            },
+            function () {
+                alert('error generico');
+            });
+        //for (var i = 0; i < $scope.todos.length; i++) {
+        //    if ($scope.todos[i].id === todo.id) {
+        //        $scope.todos.splice(i, 1);
+        //    }
+        //}
     }
 }]);
 
