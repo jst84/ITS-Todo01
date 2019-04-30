@@ -1,4 +1,4 @@
-﻿todoApp.controller('todoController', function ($scope,$http) {
+﻿todoApp.controller('todoController', ["$rootScope", "$scope", "dbServices", function ($rootScope, $scope, services) {
     $scope.saluto = "";
     $scope.todos = [];
     $scope.selectedTodo = {};
@@ -6,6 +6,7 @@
     $scope.delete = deleteTodo;
     $scope.update = editTodo;
     $scope.save = saveTodo;
+
     getTodos();
 
 
@@ -20,15 +21,14 @@
         //    };
         //    $scope.todos.push(todo);
         //}
+        services.getTodos().then(function (response) {
+            var todos = response.data;
+            console.log(todos);
+            $scope.todos = todos;
+            //alert('chiamata ajax asincrona');
+        });
+        //alert('sincrono');
 
-        $scope.todos = serviceGetTodos();
-
-        function serviceGetTodos() {
-            return $http({
-                method: 'GET',
-                url: '' //url di chiamata
-            });
-        }
     }
 
     function saveTodo() {
@@ -47,6 +47,6 @@
             }
         }
     }
-});
+}]);
 
 
