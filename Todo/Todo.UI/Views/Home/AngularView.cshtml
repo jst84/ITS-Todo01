@@ -21,6 +21,45 @@
             {{saluto}}*@
 
         <div>
+            <div id="upsert-form">
+                <form>
+                    <div>
+                        <label>
+                            Id:
+                            {{selectedTodo.Id}} 
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Name:
+                            <input type="text" ng-model="selectedTodo.Name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            LastName:
+                            <input type="text" ng-model="selectedTodo.LastName" />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Due Date:
+                            <input type="text" ng-model="selectedTodo.DueDate" />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Task:
+                            <textarea ng-model="selectedTodo.Task">
+ {{selectedTodo.Task}}
+</textarea>
+                        </label>
+                    </div>
+                    <p>
+                        <input type="submit" value="Save" ng-click="save();" />
+                    </p>
+                </form>
+            </div>
             <table>
                 <tr>
                     <td></td>
@@ -32,7 +71,7 @@
                 <tr ng-repeat="todo in todos">
                     <td>
                         <input type="button" value="delete" ng-click="delete(todo)" />
-                        <input type="button" value="edit" ng-click="update(todo)" />
+                        <input type="button" value="edit" ng-click="edit(todo)" />
                     </td>
                     <td>{{todo.Name}}</td>
                     <td>{{todo.LastName}}</td>

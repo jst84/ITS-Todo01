@@ -15,5 +15,10 @@ namespace Todo.DAL
         public DateTime InsertedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
         public DateTime DueDate { get; set; }
+
+        //public Todo()
+        //{
+        //    Task = "";
+        //}
     }
 }

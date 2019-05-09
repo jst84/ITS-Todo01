@@ -33,7 +33,41 @@ namespace Todo.UI.Controllers
             {
                 //send email
                 //appInsight.TrackError(ex);
-                
+
+
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.ToString());
+            }
+
+            //return true;
+        }
+
+        [HttpPost]
+        [Route("UpsertTodo")]
+        public HttpResponseMessage UpsertTodo(DAL.Todo todo)
+        {
+            var response = false;
+
+            try
+            {
+                DAL.DAL d = new DAL.DAL(System.Configuration.ConfigurationManager.ConnectionStrings["DB"].ConnectionString);
+                todo.UpdatedOn = DateTime.Now;
+                if (todo.Id == 0)
+                {
+                    todo.InsertedOn = DateTime.Now;
+                    response = d.InsertTodo(todo);
+                }
+                else
+                {
+                    response = d.UpdateTodo(todo);
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, response);
+            }
+            catch (Exception ex)
+            {
+                //send email
+                //appInsight.TrackError(ex);
+
 
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.ToString());
             }

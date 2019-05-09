@@ -4,9 +4,8 @@
     $scope.selectedTodo = {};
 
     $scope.delete = deleteTodo;
-    $scope.update = editTodo;
+    $scope.edit = editTodo;
     $scope.save = saveTodo;
-
     getTodos();
 
 
@@ -33,11 +32,24 @@
 
     function saveTodo() {
         var selectedTodo = $scope.selectedTodo;
-        for (var i = 0; i < $scope.todos.length; i++) {
-            if ($scope.todos[i].id === selectedTodo.id) {
-                $scope.todos[i].name = selectedTodo.name;
-            }
-        }
+
+        services.upsertTodo(selectedTodo).then(
+            function (response) {
+                if (response.data == true) {
+                    alert("Aggiornamento eseguito con successo");
+                    getTodos();
+                } else {
+                    alert('error dal backend');
+                }
+            },
+            function () {
+                alert('error generico');
+            });
+        //for (var i = 0; i < $scope.todos.length; i++) {
+        //    if ($scope.todos[i].id === selectedTodo.id) {
+        //        $scope.todos[i].name = selectedTodo.name;
+        //    }
+        //}
     }
     function deleteTodo(todo) {
         services.deleteTodo(todo).then(

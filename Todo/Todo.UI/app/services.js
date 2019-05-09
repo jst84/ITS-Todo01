@@ -1,7 +1,8 @@
 ﻿todoApp.factory("dbServices", function ($http) {
     return {
         getTodos: getPrivateTodos,
-        deleteTodo: deletePrivateTodo
+        deleteTodo: deletePrivateTodo,
+        upsertTodo: upsertPrivateTodo
     };
     function getPrivateTodos() {
         return $http({
@@ -16,6 +17,15 @@
             headers: { 'content-type': 'application/json; charset=utf-8' },
             data: JSON.stringify(todo),
             url: 'http://localhost:54345/api/todo/deleteTodo'
+        });
+    }
+
+    function upsertPrivateTodo(selectedTodo) {
+        return $http({
+            method: 'POST',
+            headers: { 'content-type': 'application/json; charset=utf-8' },
+            data: JSON.stringify(selectedTodo),
+            url: 'http://localhost:54345/api/todo/upsertTodo'
         });
     }
 });
