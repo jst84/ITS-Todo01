@@ -9,58 +9,73 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>AngularView</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/override-todo.css" rel="stylesheet" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.3.0/angular-moment.min.js"></script>*@
     <script src="~/app/app.js"></script>
     <script src="~/app/filters.js"></script>
     <script src="~/app/services.js"></script>
     <script src="~/app/todo/todoController.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="todoApp">
-    <div ng-controller="todoController">
+    <div ng-controller="todoController" class="container">
         @*<input type="text" ng-model="saluto" value="" />
             {{saluto}}*@
 
         <div>
             <div id="upsert-form">
-                <form>
-                    <div>
+                <form name="upsertform">
+                    <div class="form-group">
+                       
                         <label>
                             Id:
-                            {{selectedTodo.Id}} 
+                            {{selectedTodo.Id}}
                         </label>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label>
-                            Name:
-                            <input type="text" ng-model="selectedTodo.Name" />
+                            Name (*):
                         </label>
+                        <input class="form-control" required placeholder="Enter your name" type="text" ng-model="selectedTodo.Name" />
+                        @*<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label>
-                            LastName:
-                            <input type="text" ng-model="selectedTodo.LastName" />
+                            LastName (*):
                         </label>
+
+                        <input type="text" required class="form-control" placeholder="Insert your lastname" ng-model="selectedTodo.LastName" />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label>
-                            Due Date:
-                            <input type="text" ng-model="selectedTodo.DueDate" />
+                            Due Date (yyyy-mm-dd) (*):
                         </label>
+                        <input type="date" min="2019-05-09" max="2050-12-31" required class="form-control" placeholder="Insert the due date" ng-model="selectedTodo.DueDate" />
+
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label>
-                            Task:
-                            <textarea ng-model="selectedTodo.Task">
+                            Task (*):
+                        </label>
+
+                        <textarea required class="form-control" ng-model="selectedTodo.Task">
  {{selectedTodo.Task}}
 </textarea>
-                        </label>
                     </div>
                     <p>
-                        <input type="submit" value="Save" ng-click="save();" />
+
+                        <input type="submit" ng-disabled="upsertform.$invalid" class="btn btn-primary" value="Save" ng-click="save();" />
+                        <input type="reset" class="btn btn-default" value="Reset" ng-click="reset();" />
+
                     </p>
                 </form>
             </div>
-            <table>
+            <table class="table table-bordered table-striped">
                 <tr>
                     <td></td>
                     <td>Name</td>
@@ -70,13 +85,13 @@
                 </tr>
                 <tr ng-repeat="todo in todos">
                     <td>
-                        <input type="button" value="delete" ng-click="delete(todo)" />
-                        <input type="button" value="edit" ng-click="edit(todo)" />
+                        <input class="btn btn-danger" type="button" value="delete" ng-click="delete(todo)" />
+                        <input class="btn btn-primary" type="button" value="edit" ng-click="edit(todo)" />
                     </td>
                     <td>{{todo.Name}}</td>
                     <td>{{todo.LastName}}</td>
                     <td>{{todo.DueDate | date:'MM/dd/yyyy'}}</td>
-                    <td>{{todo.Task | truncateFriendly:10}}</td>
+                    <td>{{todo.Task | truncateFriendly:30}}</td>
                 </tr>
             </table>
             @*<ul>

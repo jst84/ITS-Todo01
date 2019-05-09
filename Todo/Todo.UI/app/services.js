@@ -33,7 +33,9 @@
 
 todoApp.factory("mockServices", function ($http) {
     return {
-        getTodos: getPrivateTodos
+        getTodos: getPrivateTodos,
+        deleteTodo: deletePrivateTodo,
+        upsertTodo: upsertPrivateTodo
     };
     function getPrivateTodos() {
 
@@ -45,9 +47,13 @@ todoApp.factory("mockServices", function ($http) {
             };
             todos.push(todo);
         }
-
         return todos;
+    }
 
-
+    function deletePrivateTodo() {
+        return false;
+    }
+    function upsertPrivateTodo() {
+        return true;
     }
 });

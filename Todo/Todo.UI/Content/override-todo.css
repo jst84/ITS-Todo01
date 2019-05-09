@@ -1,0 +1,33 @@
+﻿/*@primary-color: #000000;
+
+input.ng-invalid,
+textarea.ng-invalid {
+    border: dotted 1px @primary-color;
+}
+
+
+.field {
+    color: @primary-color;
+}
+
+div {
+    color: @primary-color;
+}*/
+
+#name {
+    color: blue;
+}
+
+
+#upsert-form {
+    border: solid 1px #eee;
+    padding: 10px;
+}
+
+    /*#upsert-form input[type=text] {
+        background: #eee;
+    }
+
+    #upsert-form input[type=submit] {
+        margin: 10px 0;
+    }*/

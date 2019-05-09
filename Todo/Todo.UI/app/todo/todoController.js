@@ -2,13 +2,16 @@
     $scope.saluto = "";
     $scope.todos = [];
     $scope.selectedTodo = {};
-
+    //$scope.test = moment().startOf('day').fromNow(); 
     $scope.delete = deleteTodo;
     $scope.edit = editTodo;
     $scope.save = saveTodo;
+    $scope.reset = reset;
     getTodos();
 
-
+    function reset() {
+        $scope.selectedTodo = {};
+    }
     function editTodo(todo) {
         $scope.selectedTodo = angular.copy(todo);
     }
