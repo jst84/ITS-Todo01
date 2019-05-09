@@ -1,0 +1,18 @@
+{
+    "name": "Todo",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages",
+            "id": "b304a770-7269-11e9-a1b1-0fb4336b7e15",
+            "name": "http://localhost:3978/api/messages"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0",
+    "overrides": null,
+    "path": "D:\\tmp\\todoenaip\\Todo\\Todo.Bot\\Todo.bot"
+}

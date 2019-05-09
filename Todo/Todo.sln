@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.DAL", "Todo.DAL\Todo.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.UI", "Todo.UI\Todo.UI.csproj", "{6E4875DD-BB09-447F-9C17-AAB0F3C3865C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Bot", "Todo.Bot\Todo.Bot.csproj", "{91ABC0A1-1D55-409E-A438-9545DD8C808F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6E4875DD-BB09-447F-9C17-AAB0F3C3865C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E4875DD-BB09-447F-9C17-AAB0F3C3865C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E4875DD-BB09-447F-9C17-AAB0F3C3865C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91ABC0A1-1D55-409E-A438-9545DD8C808F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91ABC0A1-1D55-409E-A438-9545DD8C808F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91ABC0A1-1D55-409E-A438-9545DD8C808F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91ABC0A1-1D55-409E-A438-9545DD8C808F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
